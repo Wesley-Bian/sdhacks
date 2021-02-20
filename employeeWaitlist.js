@@ -8,7 +8,7 @@ import { StyleSheet, Text, View } from 'react-native';
  * from the db.
  *
  */
-class waitlist extends Component {
+class employeeWaitlist extends Component {
   constructor(props){
     super(props)
     //creates a state called parties from input
