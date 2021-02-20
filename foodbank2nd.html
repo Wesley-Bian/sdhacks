@@ -1,0 +1,62 @@
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<style>
+body{
+	text-align:center;
+
+	
+}
+  button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+
+    
+  padding: 20px;
+  text-align: center;
+  
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+    margin: 4px 2px;
+border-radius: 12px;
+}
+
+</style>
+<title> list of restaurants with leftover food </title>
+
+<body>
+<h1> Here are restaurants in CITY NAME that have leftover food to donate. </h1>
+<div id = "restaurant1">
+ 
+</div>
+
+<script type="text/babel">
+class Restaurant1 extends React.Component {
+  render() {
+    return <div> <h3> Bob's Burgers </h3> <h3> 123 F St. </h3> <button> Pick up from here </button> </div>
+  }
+}
+
+ReactDOM.render(<Restaurant1 />, document.getElementById('restaurant1'))
+</script>
+
+<div id = 'restaurant2'>
+
+</div>
+<script type="text/babel">
+class Restaurant2 extends React.Component {
+  render() {
+    return <div> <h3> Mike's Tacos </h3><h3> 456 T St. </h3><button>Pick up from here </button> </div>
+  }
+}
+
+ReactDOM.render(<Restaurant2 />, document.getElementById('restaurant2'))
+</script>
+
+</body>
+</html>

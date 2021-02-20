@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<style>
+body{
+	text-align:center;
+
+	
+}
+  button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+
+    
+  padding: 20px;
+  text-align: center;
+  
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+    margin: 4px 2px;
+border-radius: 12px;
+}
+input{
+	height:100;
+}
+</style>
+
+<body>
+  
+<div id="mydiv"></div>
+
+<script type="text/babel">
+class Hello extends React.Component {
+  render() {
+    return <h1> What city are you in? </h1>
+  }
+}
+
+ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+</script>
+
+
+
+<form method = "POST" action = "XXXXXXXX">
+<br>
+<br>
+<br>
+<br>
+<div id = "cityName">
+</div>
+
+<input type = "text" name = "city">
+
+
+<!- input type = "submit" value = "Enter" -->
+<br>
+<br>
+<br>
+<br>
+<div id = "button">
+</div>
+ <button> Enter </button>
+
+</form>
+
+</body>
+</html>
