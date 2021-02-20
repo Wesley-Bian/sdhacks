@@ -10,6 +10,13 @@ body{
 <body>
 <h1> Welcome to MRGA! </h1>
 <h2> <a href = "viewWaitlist.js"> Click here if you want to make a reservation at a restaurant </a></h2>
-<h2> <a href = "foodbank.js"> Click here if you are a foodbank. </a></h2>
-</body>
+<h2> <a id = "foodbank" href = "foodbank.js"> Click here if you are a foodbank. </a></h2>
+<script>
+var foodbank = document.getElementById("foodbank");
+
+foodbank.addEventListener("click", () => {
+	console.log("you clicked the foodbank tab");
+});
+</script>
+	</body>
 </html>
