@@ -8,15 +8,15 @@ import { StyleSheet, Text, View } from 'react-native';
  * from the db.
  *
  */
-class waitlist extends Component {
+class customerWaitlist extends Component {
   constructor(props){
     super(props)
     //creates a state called parties from input
     this.state = {
       parties: [
-        {idx: 1, name: 'Logan', phone: '888-888-8888', partySize: 5, wait: 5},
-        {idx: 2, name: 'Tai', phone: '888-888-8888', partySize: 6, wait: 10},
-        {idx: 3, name: 'Muntaser', phone: '888-888-8888', partySize: 4, wait: 15}
+        {idx: 1, name: 'Logan', partySize: 5, wait: 5},
+        {idx: 2, name: 'Tai',  partySize: 6, wait: 10},
+        {idx: 3, name: 'Muntaser', partySize: 4, wait: 15}
       ]
     }
   }
