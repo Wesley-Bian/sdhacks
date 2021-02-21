@@ -39,7 +39,7 @@ function Employee() {
 
           <Link to={'${url}/CustomerAdd'}>
             <View style={styles.btn}>
-              <button type='button' style={styles.add}>
+              <button type='button', style={styles.add}>
                 Add
               </button>
             </View>
@@ -47,7 +47,7 @@ function Employee() {
 
           <Link to={'${url}/CustomerAdd'}>
             <View style={styles.btn}>
-              <button type='button'>
+              <button type='button', style = {styles.button}>
                 Seat
               </button>
             </View>
@@ -55,7 +55,7 @@ function Employee() {
 
           <Link to={'${url}/CustomerAdd'}>
             <View style={styles.btn}>
-              <button type='button'>
+              <button type='button', style={styles.button}>
                 Remove
               </button>
             </View>
@@ -103,6 +103,22 @@ const styles = StyleSheet.create({
         width: '80%',
         height: '50%',
         backgroundColor: '#fff'
-    }
+    },
+  button: {
+    background-color: '#4CAF50',
+    border: 'none',
+    color: 'white',
+
+    
+    padding: '20px',
+    text-align: 'center',
+  
+    text-decoration: 'none',
+   display: 'inline-block',
+   font-size: '16px',
+
+    margin: '4px 2px',
+   border-radius: '12px'
+}
 
 });
