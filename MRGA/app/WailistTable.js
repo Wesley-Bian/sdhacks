@@ -1,33 +1,38 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, async } from 'react-native';
 
 
 
-const fetchData = async () => {
-  try {
-    let res = await fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        Accept: 'application/json',
-        Origin: 'http://localhost:19006/',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
 
-      body: JSON.stringify ({
-        "action" : "getwaitlist",
-        "rid" : "1"
-      })
-    });
-    let returnedJSON = await res.json();
-    return returnedJSON;
 
-  } catch (exception) {
-    console.log(exception)
-  }
+// const fetchData =  async () => {
   
-}
+//   try {
+//     let res = await fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions', {
+//       method: 'POST',
+//       headers: {
+//         Accept: 'application/json',
+//         Origin: 'http://localhost:19006/',
+//         'Content-Type': 'application/json'
+//       },
 
+//       body: JSON.stringify ({
+//         "action" : "getwaitlist",
+//         "rid" : "1"
+//       })
+//     });
+//     const returnedJSON =  await res.json();
+//     return returnedJSON.parties;
+
+//   } catch (exception) {
+//     console.log(exception);
+//   }
+  
+// }
+
+
+var arr = [];
 
 /* Provides the basic front-end operations of a dynamic waitlist.
  *
@@ -35,44 +40,35 @@ const fetchData = async () => {
  *
  */
 class CustomerWaitlist extends Component {
-    
     constructor(props){
       super(props)
-      let data = fetchData();
-
-      console.log(data);
-
-
-      // try {
-      //   let res = fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions', {
-      //     method: 'POST',
-      //     headers: {
-      //       Accept: 'application/json',
-      //       Origin: 'http://localhost:19006/',
-      //       'Content-Type': 'application/json'
-      //     },
-    
-      //     body: JSON.stringify ({
-      //       "action" : "getwaitlist",
-      //       "rid" : "1"
-      //     })
-      //   });
-
-      //   this.state.parties = res;
-    
-      // } catch (exception) {
-      //   console.log(exception)
-      // }
+      
 
       this.state = {
         parties: [
-          // {idx: 1, name: 'Logan', partySize: 5, wait: 5},
-          // {idx: 2, name: 'Tai', partySize: 6, wait: 10},
-          // {idx: 3, name: 'Muntaser', partySize: 4, wait: 15}
+          {id: 1, name: 'Joe', phone: 123123123, partysize: 2, waittime: 5}
         ]
       }
     }
-  
+
+    /**
+     * Need fixing.Basically setState to include everything before plus the new 
+     * object
+     * @param {*} name 
+     * @param {*} phone 
+     * @param {*} partysize 
+     */
+    addPart(name, phone, partysize) {
+      this.setState({
+        id: this.state.parties.length, 
+        name: name,
+        phone: phone,
+        partysize: partysize,
+        waittime: this.state.parties.length * 5
+      });
+      
+    }
+
     render(){
       return(
         
@@ -108,14 +104,14 @@ class CustomerWaitlist extends Component {
   
  
     renderData() {
-      return this.state.parties.map((party, index) => {
-        const { idx, name, phone, partySize, wait} = party //destructing
+      return  this.state.parties.map((party, index) => {
+        const { id, name, phone, partysize, waittime} = party //destructing
         return(
-          <tr key={idx}>
-            <td>{idx}</td>
+          <tr key={id}>
+            <td>{id}</td>
             <td>{name}</td>
-            <td>{partySize}</td>
-            <td>{wait}</td>
+            <td>{partysize}</td>
+            <td>{waittime}</td>
           </tr>
         );
       })

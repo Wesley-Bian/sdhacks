@@ -10,8 +10,8 @@ import {
     KeyboardAvoidingView,
     Platform
 } from 'react-native';
-
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Link, Route, Switch } from 'react-router-dom';
+import CustomerWaitlist from './WailistTable';
 
 /**
  * This is the screen redirected by the home screen.
@@ -27,6 +27,8 @@ function CustomerAdd() {
     const [phone_input, onChangePhone] = useState('');
     const [party_input, onChangeParty] = useState('');
     
+    const customerWL = new CustomerWaitlist();
+
     return (
       /**
        * KeyboardAvoidingView to solve the keyboard pushing layout out of order problem
@@ -92,23 +94,28 @@ function CustomerAdd() {
                * If empty, display a warning. If not empty then store the data
                * and go back to Customer Home screen
                */}
-              <TouchableOpacity
-                  style={styles.add_btn}
-                  onPress={() =>  {
-  
-                    if (name_input == "" || phone_input == "" || party_input == "") {
-                        console.log("None of the fields can be empty!")
-                    } else {
-                        console.log("Name: " + name_input);
-                        console.log("Phone: " + phone_input);
-                        console.log("Party size: " + party_input);
-                        history.back();
-                    }
-                    
-                  }}
-              >
-                  <Text style={{ color: '#fff' }}>ADD</Text>
-              </TouchableOpacity>
+               
+                  <TouchableOpacity
+                      style={styles.add_btn}
+                      onPress={() =>  {
+      
+                        if (name_input == "" || phone_input == "" || party_input == "") {
+                            console.log("None of the fields can be empty!")
+                        } else {
+                            console.log("Name: " + name_input);
+                            console.log("Phone: " + phone_input);
+                            console.log("Party size: " + party_input);
+                            {/**NEED FIXING BELOW */}
+                            customerWL.addPart(name_input, phone_input, party_input);
+                            console.log(customerWL.state.parties);
+
+                            history.back();
+                        }
+                        
+                      }}
+                  >
+                      <Text style={{ color: '#fff' }}>ADD</Text>
+                  </TouchableOpacity>
 
           </SafeAreaView>
         </KeyboardAvoidingView>

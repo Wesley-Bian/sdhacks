@@ -7,10 +7,12 @@ import {
     SafeAreaView, 
     View,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from 'react-native';
 
 import CustomerWaitlist from './WailistTable';
+
 
 /**
  * This is the home screen that customers will see
@@ -43,6 +45,7 @@ function CustomerHome(/*{ navigation }*/) {
                  */}
                 <TouchableOpacity
                     style={styles.join_btn}
+
                 >
                     <Link to={'/CustomerAdd'} style={{ height: '100%', width: '100%', textDecoration: 'none' }}>
                         <TouchableOpacity 
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 60,
         bottom: '10%',
-        backgroundColor: '#fff',
+        backgroundColor: 'dodgerblue',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center'
