@@ -1,8 +1,9 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { 
-    StyleSheet, 
-    SafeAreaView, 
+import arr from './array';
+import {
+    StyleSheet,
+    SafeAreaView,
     Text,
     View,
     TextInput,
@@ -11,23 +12,24 @@ import {
     Platform
 } from 'react-native';
 import { Link, Route, Switch } from 'react-router-dom';
-import CustomerWaitlist from './WailistTable';
+import CustomerWaitlist from './WaitlistTable';
 
 /**
  * This is the screen redirected by the home screen.
  * Here, customers can add their name, phone number, and party size
  * The ADD button will store data into the database, refresh the
- * table in the home screen, and then redirect customers back to 
+ * table in the home screen, and then redirect customers back to
  * the home screen where everything is updated
- * 
+ *
  */
-function CustomerAdd() {
+
+   arr.push({id: 3, name: 'Logan', waittime:5, partysize:1, })
+
+function CustomerAdd(){
     // name_input for name, phone_input for phone, party_input for party size
     const [name_input, onChangeName] = useState('');
     const [phone_input, onChangePhone] = useState('');
     const [party_input, onChangeParty] = useState('');
-    
-    const customerWL = new CustomerWaitlist();
 
     return (
       /**
@@ -59,7 +61,7 @@ function CustomerAdd() {
                   onChangeText={text => onChangeName(text)}
                   value={name_input}
                 />
-  
+
                 {/**
                  * This TextInput keeps track of customer's phone number
                  */}
@@ -72,7 +74,7 @@ function CustomerAdd() {
                   onChangeText={text => onChangePhone(text)}
                   value={phone_input}
                 />
-  
+
                 {/**
                 * This TextInput keeps track of customer's party size
                 */}
@@ -85,20 +87,20 @@ function CustomerAdd() {
                   onChangeText={text => onChangeParty(text)}
                   value={party_input}
                 />
-  
+
               </View>
-  
+
               {/**
                * This is the ADD button
                * Upon clicking, it will check whether the fields are empty
                * If empty, display a warning. If not empty then store the data
                * and go back to Customer Home screen
                */}
-               
+
                   <TouchableOpacity
                       style={styles.add_btn}
                       onPress={() =>  {
-      
+
                         if (name_input == "" || phone_input == "" || party_input == "") {
                             console.log("None of the fields can be empty!")
                         } else {
@@ -106,12 +108,16 @@ function CustomerAdd() {
                             console.log("Phone: " + phone_input);
                             console.log("Party size: " + party_input);
                             {/**NEED FIXING BELOW */}
-                            customerWL.addPart(name_input, phone_input, party_input);
-                            console.log(customerWL.state.parties);
-
+                            pus();
+                            /*arr.push({
+                              id: 1,
+                              name: name_input,
+                              waittime: 5,
+                              partysize: party_input})
+*/
                             history.back();
                         }
-                        
+
                       }}
                   >
                       <Text style={{ color: '#fff' }}>ADD</Text>

@@ -2,17 +2,15 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import { 
-    StyleSheet, 
-    SafeAreaView, 
+import {
+    StyleSheet,
+    SafeAreaView,
     View,
     Text,
-    TouchableOpacity,
-    Alert
+    TouchableOpacity
 } from 'react-native';
 
-import CustomerWaitlist from './WailistTable';
-
+import CustomerWaitlist from './WaitlistTable';
 
 /**
  * This is the home screen that customers will see
@@ -20,17 +18,17 @@ import CustomerWaitlist from './WailistTable';
  * Upon clicking the JOIN button, customer will be
  * redirected to the ADD page where they can input
  * their name, phone number, and party size
- * 
+ *
  */
 function CustomerHome(/*{ navigation }*/) {
 
     /**
-     * Upon clicking the JOIN button, the app will navigate to the 
+     * Upon clicking the JOIN button, the app will navigate to the
      * ADD screen
      */
     return (
         <SafeAreaView style={styles.container}>
-            
+
             <View style={styles.tble}>
                 {/**
                  * Waitlist table here
@@ -45,16 +43,15 @@ function CustomerHome(/*{ navigation }*/) {
                  */}
                 <TouchableOpacity
                     style={styles.join_btn}
-
                 >
-                    <Link to={'/CustomerAdd'} style={{ height: '100%', width: '100%', textDecoration: 'none' }}>
-                        <TouchableOpacity 
-                            style={{ 
-                                height: '100%', 
-                                width: '100%', 
-                                backgroundColor: 'black', 
-                                justifyContent: 'center', 
-                                alignItems: 'center' 
+                    <Link to={'/waitlist/add'} style={{ height: '100%', width: '100%', textDecoration: 'none' }}>
+                        <TouchableOpacity
+                            style={{
+                                height: '100%',
+                                width: '100%',
+                                backgroundColor: 'black',
+                                justifyContent: 'center',
+                                alignItems: 'center'
                             }}
                         >
                             <Text style={{ color: '#fff' }}>JOIN</Text>
@@ -62,7 +59,7 @@ function CustomerHome(/*{ navigation }*/) {
                     </Link>
 
                 </TouchableOpacity>
-        </SafeAreaView>  
+        </SafeAreaView>
     );
   }
 
@@ -81,7 +78,7 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 60,
         bottom: '10%',
-        backgroundColor: 'dodgerblue',
+        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center'
