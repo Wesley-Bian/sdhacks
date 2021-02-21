@@ -38,27 +38,45 @@ function Employee() {
 
 
           <Link to={'${url}/CustomerAdd'}>
-            <View style={styles.btn}>
-              <button type='button', style={styles.button}>
-                Add
-              </button>
-            </View>
+            <TouchableOpacity
+              style={{
+                height: '50px',
+                top: 100,
+                width: '360px',
+                backgroundColor: 'black',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{color: 'white'}}> ADD </Text>
+              </TouchableOpacity>
           </Link>
 
           <Link to={'${url}/CustomerAdd'}>
-            <View style={styles.btn}>
-              <button type='button', style = {styles.button}>
-                Seat
-              </button>
-            </View>
+          <TouchableOpacity
+            style={{
+              height: '50px',
+              width: '360px',
+              top: 110,
+              backgroundColor: 'black',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={{color: 'white'}}> Insert </Text>
+            </TouchableOpacity>
           </Link>
 
           <Link to={'${url}/CustomerAdd'}>
-            <View style={styles.btn}>
-              <button type='button', style={styles.button}>
-                Remove
-              </button>
-            </View>
+          <TouchableOpacity
+            style={{
+              height: '50px',
+              width: '360px',
+              top: 120,
+              backgroundColor: 'black',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={{color: 'white'}}> Remove </Text>
+            </TouchableOpacity>
           </Link>
 
         </SafeAreaView>
@@ -73,9 +91,11 @@ function Employee() {
  */
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      top:20,
+      flexDirection: 'column',
       backgroundColor: '#fff',
       justifyContent: 'flex-end',
+      alignItems: 'center'
     },
 
     add: {
@@ -109,10 +129,10 @@ const styles = StyleSheet.create({
     border: 'none',
     color: 'white',
 
-    
+
     padding: '20px',
     textAlign: 'center',
-  
+
     textDecoration: 'none',
    display: 'inline-block',
    fontSize: '16px',
