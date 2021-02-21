@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import EmployeeWaitlist from './employeeWaitlist';
+import EmployeeWaitlist from './EmployeeWaitlist';
 import {
   BrowserRouter as Router,
   Switch, Route,
