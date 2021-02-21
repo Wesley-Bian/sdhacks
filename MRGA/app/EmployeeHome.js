@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import EmployeeWaitlist from './employeeWaitlist';
+import EmployeeWaitlist from './EmployeeWaitlist';
 import {
   BrowserRouter as Router,
   Switch, Route,
@@ -14,6 +14,8 @@ import {
     StyleSheet,
     SafeAreaView,
     View,
+    Button,
+    Alert,
     Text,
     TouchableOpacity
 } from 'react-native';
@@ -28,16 +30,15 @@ import {
  *
  * @param navigation
  */
-function Employee() {
-  const {url, path} = useRouteMatch();
-
+class EmployeeHome extends React.Component {
+    render() {
     return (
         <SafeAreaView style={styles.container}>
           <EmployeeWaitlist />
 
 
 
-          <Link to={'${url}/CustomerAdd'}>
+          <Link to={'waitlist/add'}>
             <TouchableOpacity
               style={{
                 height: '50px',
@@ -51,7 +52,7 @@ function Employee() {
               </TouchableOpacity>
           </Link>
 
-          <Link to={'${url}/CustomerAdd'}>
+          <Link to={'waitlist/add'}>
           <TouchableOpacity
             style={{
               height: '50px',
@@ -65,7 +66,7 @@ function Employee() {
             </TouchableOpacity>
           </Link>
 
-          <Link to={'${url}/CustomerAdd'}>
+          <Link to={'waitlist/add'}>
           <TouchableOpacity
             style={{
               height: '50px',
@@ -79,11 +80,29 @@ function Employee() {
             </TouchableOpacity>
           </Link>
 
+              <TouchableOpacity
+                  style={{
+                      height: '50px',
+                      width: '360px',
+                      top: 130,
+                      backgroundColor: 'black',
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                  }}
+                  onPress={() =>{
+                    /*
+                    * Call to backend
+                    */
+                  }}
+              >
+                  <Text style={{ color: '#fff' }}>POP</Text>
+              </TouchableOpacity>
+
         </SafeAreaView>
-    );
+    )};
   }
 
-  export default Employee;
+  export default EmployeeHome;
 
 
 /**
