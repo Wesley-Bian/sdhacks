@@ -3,46 +3,28 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 
-const fetchData = () => {
-  // try {
-  //   let res = await fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions', {
-  //     method: 'POST',
-  //     mode: 'no-cors',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       Origin: 'http://localhost:19006/',
-  //       'Content-Type': 'application/x-www-form-urlencoded'
-  //     },
+const fetchData = async () => {
+  try {
+    let res = await fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        Accept: 'application/json',
+        Origin: 'http://localhost:19006/',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
 
-  //     body: JSON.stringify ({
-  //       "action" : "getwaitlist",
-  //       "rid" : "1"
-  //     })
-  //   });
-  //   let returnedJSON = await res.json();
-  //   return returnedJSON;
+      body: JSON.stringify ({
+        "action" : "getwaitlist",
+        "rid" : "1"
+      })
+    });
+    let returnedJSON = await res.json();
+    return returnedJSON;
 
-  // } catch (exception) {
-  //   console.log(exception)
-  // }
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Cookie", "__Host-GAPS=1:EJxWgnc2tTbK5JGpZx91Nj68GxroKA:yBAIT_X_6RCkvHvt");
-  myHeaders.append("Origin", "http://localhost:19006/");
-
-  var raw = JSON.stringify({"action":"getwaitlist","rid":"1"});
-
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
-
-  fetch("https://us-central1-aiot-fit-xlab.cloudfunctions.net/mrgafunctions", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  } catch (exception) {
+    console.log(exception)
+  }
   
 }
 
