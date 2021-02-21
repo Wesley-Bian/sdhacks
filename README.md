@@ -1,5 +1,7 @@
 # sdhacks
-Will change later
+Welcome to our repository for our CheckIn app!
+
+The original work flow utilizes react native for front end and google functions for the backend. Here is a broad overview of each endpoint function:
 
 # createWaitlist() function
 needs to just create a new table in our db.
@@ -17,12 +19,15 @@ after removing a party, it's important to update the wait time by subtracting 5 
 # deleteTable()
 clears table, prompts user for leftovers.
 
+# Deploy!
+This current version is just a prototype, but assuming you have all the needed dependencies (react native, react.js, npm, expo), simply just run 'npm start'
+
 ## Routes
 
 ‘/’ - welcome page
 ‘/resturaunt’ displays the viewWaitlist.js
 ‘/resturaunt/add’ displays the customer join.js
-‘resturaunt/employee’ displays the employee.js page
+‘/employee’ displays the employee.js page
 ‘/foodbank’ displays the foodbank.js 
 
 
