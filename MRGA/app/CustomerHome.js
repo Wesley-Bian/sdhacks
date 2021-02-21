@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 
 import { 
     StyleSheet, 
@@ -9,6 +10,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import CustomerWaitlist from './WailistTable';
 
 /**
  * This is the home screen that customers will see
@@ -17,9 +19,8 @@ import {
  * redirected to the ADD page where they can input
  * their name, phone number, and party size
  * 
- * @param navigation
  */
-function CustomerHome({ navigation }) {
+function CustomerHome(/*{ navigation }*/) {
 
     /**
      * Upon clicking the JOIN button, the app will navigate to the 
@@ -30,17 +31,34 @@ function CustomerHome({ navigation }) {
             
             <View style={styles.tble}>
                 {/**
-                 * TODO: Implement waitlist table here
+                 * Waitlist table here
                  */}
+                <CustomerWaitlist />
+
             </View>
-            
-            <TouchableOpacity
-                style={styles.join_btn}
-                onPress={() =>  navigation.navigate('ADD TO WAITLIST')}
-            >
-                <Text>JOIN</Text>
-            </TouchableOpacity>
-  
+
+                {/**
+                 * This is the JOIN button. The redirect link is wrapped within
+                 * a TouchableOpacity component
+                 */}
+                <TouchableOpacity
+                    style={styles.join_btn}
+                >
+                    <Link to={'/CustomerAdd'} style={{ height: '100%', width: '100%', textDecoration: 'none' }}>
+                        <TouchableOpacity 
+                            style={{ 
+                                height: '100%', 
+                                width: '100%', 
+                                backgroundColor: 'black', 
+                                justifyContent: 'center', 
+                                alignItems: 'center' 
+                            }}
+                        >
+                            <Text style={{ color: '#fff' }}>JOIN</Text>
+                        </TouchableOpacity>
+                    </Link>
+
+                </TouchableOpacity>
         </SafeAreaView>  
     );
   }
@@ -59,8 +77,8 @@ const styles = StyleSheet.create({
     join_btn: {
         width: '80%',
         height: 60,
-        bottom: 20,
-        backgroundColor: 'dodgerblue',
+        bottom: '10%',
+        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center'
@@ -71,7 +89,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: '80%',
         height: '70%',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        justifyContent: 'flex-end',
+        alignContent: 'center',
+        alignItems: 'center'
     }
 
 });

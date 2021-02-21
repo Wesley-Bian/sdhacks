@@ -20,9 +20,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
  * table in the home screen, and then redirect customers back to 
  * the home screen where everything is updated
  * 
- * @param navigation
  */
-function CustomerAdd({ navigation }) {
+function CustomerAdd() {
     // name_input for name, phone_input for phone, party_input for party size
     const [name_input, onChangeName] = useState('');
     const [phone_input, onChangePhone] = useState('');
@@ -45,6 +44,7 @@ function CustomerAdd({ navigation }) {
                * Container for the input boxes
                */}
               <View style={styles.info_container}>
+               <Text style={{ fontSize: 24 }}> ADD TO WAITLIST </Text>
 
                 {/**
                  * This TextInput keeps track of customer's name
@@ -102,12 +102,12 @@ function CustomerAdd({ navigation }) {
                         console.log("Name: " + name_input);
                         console.log("Phone: " + phone_input);
                         console.log("Party size: " + party_input);
-                        navigation.navigate('HOME');
+                        history.back();
                     }
                     
                   }}
               >
-                  <Text>ADD</Text>
+                  <Text style={{ color: '#fff' }}>ADD</Text>
               </TouchableOpacity>
 
           </SafeAreaView>
@@ -145,8 +145,8 @@ const styles = StyleSheet.create({
     add_btn: {
         width: '80%',
         height: 60,
-        bottom: 20,
-        backgroundColor: 'dodgerblue',
+        bottom: '10%',
+        backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
