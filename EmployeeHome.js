@@ -39,7 +39,7 @@ function Employee() {
 
           <Link to={'${url}/CustomerAdd'}>
             <View style={styles.btn}>
-              <button type='button', style={styles.add}>
+              <button type='button', style={styles.button}>
                 Add
               </button>
             </View>
@@ -105,20 +105,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
   button: {
-    background-color: '#4CAF50',
+    backgroundColor: '#4CAF50',
     border: 'none',
     color: 'white',
 
     
     padding: '20px',
-    text-align: 'center',
+    textAlign: 'center',
   
-    text-decoration: 'none',
+    textDecoration: 'none',
    display: 'inline-block',
-   font-size: '16px',
+   fontSize: '16px',
 
     margin: '4px 2px',
-   border-radius: '12px'
+   borderRadius: '12px'
 }
 
 });
